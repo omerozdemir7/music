@@ -40,6 +40,10 @@
         }
 
         .music-player {
+         background-image: url(Loop\ Waves\ GIF.gif);
+    background-repeat: no-repeat;
+    background-size: cover; /* veya contain, isteğe bağlı */
+    background-position: center;
     width: 90%;
     max-width: 400px; /* Bu değer, içerideki öğelerin genişliğini kısıtlar */
     background-color: var(--card-bg);
@@ -135,23 +139,26 @@
         }
 
         .control-button {
-            background-color: var(--card-bg);
-            border: 1px solid rgb(171, 168, 168);
-            /* Daha görünür bir border */
-            border-radius: 50%;
-            width: 55px;
-            height: 55px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.6em;
-            cursor: pointer;
-            box-shadow: var(--button-shadow);
-            /* Gölge efekti */
-            color: var(--text-color);
-            transition: all 0.2s ease;
-            flex-shrink: 0;
-        }
+    background-color: var(--card-bg);
+    border: 1px solid rgb(171, 168, 168);
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6em;
+    cursor: pointer;
+
+    /* Geliştirilmiş gölge */
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.2),   /* yumuşak dış gölge */
+        inset 0 2px 4px rgba(255, 255, 255, 0.1); /* içten hafif parlama efekti */
+
+    color: var(--text-color);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
 
         .control-button:active {
             box-shadow: var(--button-active-shadow);
@@ -249,7 +256,7 @@ canvas {
             align-items: center;
             font-size: 1.2em;
             cursor: pointer;
-            box-shadow: var(--button-shadow);
+            
             /* Gölge efekti */
             color: #777;
             transition: all 0.2s ease;
@@ -333,8 +340,7 @@ canvas {
             font-size: 0.95em;
             cursor: pointer;
             margin-top: 30px;
-            box-shadow: var(--button-shadow);
-            /* Gölge efekti */
+            b
             transition: all 0.2s ease;
             display: flex;
             /* İkon ve metin hizalaması için */
@@ -350,60 +356,69 @@ canvas {
         }
 
         /* Duyarlı ayarlamalar */
-        @media (max-width: 500px) {
-            .music-player {
-                padding: 20px;
-                width: 95%;
-            }
+       @media (max-width: 500px) {
+    html, body {
+        font-size: 90%;
+        overflow-x: hidden;
+    }
 
-            .cover-image {
-                max-width: 180px;
-                height: 180px;
-                margin-bottom: 20px;
-            }
+    .music-player {
+        padding: 20px;
+        width: 95%;
+    }
 
-            .song-title {
-                font-size: 1.2em;
-            }
+    .cover-image {
+        max-width: 180px;
+        height: 180px;
+        margin-bottom: 20px;
+    }
 
-            .song-artist {
-                font-size: 0.8em;
-            }
+    .song-title {
+        font-size: 1.2em;
+        text-align: center;
+    }
 
-            .controls {
-                gap: 15px;
-                margin-bottom: 20px;
-            }
+    .song-artist {
+        font-size: 0.8em;
+        text-align: center;
+    }
 
-            .control-button {
-                width: 48px;
-                height: 48px;
-                font-size: 1.4em;
-            }
+    .controls {
+        gap: 15px;
+        margin-bottom: 20px;
+        flex-wrap: wrap; /* küçük ekranlarda butonlar taşmasın */
+        justify-content: center;
+    }
 
-            .control-button#play-pause {
-                width: 60px;
-                height: 60px;
-                font-size: 1.9em;
-            }
+    .control-button {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4em;
+    }
 
-            .volume-icon-button {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1em;
-            }
+    .control-button#play-pause {
+        width: 60px;
+        height: 60px;
+        font-size: 1.9em;
+    }
 
-            .volume-slider-container.show {
-                width: 120px;
-                /* Daha küçük ekranlar için ayarla */
-                right: 50px;
-            }
+    .volume-icon-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1em;
+    }
 
-            .file-input-button {
-                padding: 10px 20px;
-                font-size: 0.9em;
-            }
-        }
+    .volume-slider-container.show {
+        width: 120px;
+        right: 50px;
+    }
+
+    .file-input-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
     </style>
 </head>
 
